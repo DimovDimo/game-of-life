@@ -1,4 +1,7 @@
 const cellConstant = 3;
+const compactnessConstant = 0.3;
+
+let random = Math.random;
 
 class Engine {
     constructor(width, height) {
@@ -14,5 +17,9 @@ class Engine {
 
     getVariableCells(width){
         return new Array(cellConstant * width);
+    }
+
+    randomCells() {
+        //TODO
     }
 }
