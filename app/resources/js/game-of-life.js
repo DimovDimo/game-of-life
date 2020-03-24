@@ -28,4 +28,8 @@ class Engine {
     getRandomCell(){
         return 0 | compactnessConstant + random();
     }
+
+    clear() {
+        this.cells = new Array(this.cells.length).fill(0);
+    }
 }
