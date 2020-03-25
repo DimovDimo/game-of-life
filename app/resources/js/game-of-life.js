@@ -32,4 +32,8 @@ class Engine {
     clear() {
         this.cells = new Array(this.cells.length).fill(0);
     }
+
+    generation() {
+        let variableCells = this.variableCells;
+    }
 }
