@@ -1,7 +1,6 @@
 const cellConstant = 3;
-const compactnessConstant = 0.3;
 
-let random = Math.random;
+let compactnessConstant = getRandomArbitrary(0.3, 0.7);
 
 class Engine {
     constructor(width, height) {
@@ -26,7 +25,7 @@ class Engine {
     }
       
     getRandomCell(){
-        return 0 | compactnessConstant + random();
+        return 0 | compactnessConstant + Math.random();
     }
 
     clear() {
@@ -36,4 +35,8 @@ class Engine {
     generation() {
         let variableCells = this.variableCells;
     }
+}
+
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
 }
