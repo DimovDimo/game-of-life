@@ -32,8 +32,21 @@ class Engine {
         this.cells = new Array(this.cells.length).fill(0);
     }
 
+    getLength(){
+        return this.width * widthConstant
+    }
+      
+    firstRows(variableCells) {
+        for (let x = 0; x < this.getLength(); x++) {
+            variableCells[x] = 0;
+        }
+        
+        return variableCells;
+    }
+
     generation() {
         let variableCells = this.variableCells;
+        variableCells = this.firstRows(variableCells);
     }
 }
 
