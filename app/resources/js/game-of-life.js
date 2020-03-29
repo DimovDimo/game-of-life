@@ -1,4 +1,5 @@
 const cellConstant = 3;
+const widthConstant = 2;
 
 let compactnessConstant = getRandomArbitrary(0.3, 0.7);
 
@@ -36,17 +37,20 @@ class Engine {
         return this.width * widthConstant
     }
       
-    firstRows(variableCells) {
+    firstRows() {
         for (let x = 0; x < this.getLength(); x++) {
-            variableCells[x] = 0;
+          this.variableCells[x] = 0;
         }
-        
-        return variableCells;
+      }
+      
+    thirdRow() {
+        this.variableCells[this.getLength()] = this.cells[0] + this.cells[1];
     }
 
     generation() {
         let variableCells = this.variableCells;
-        variableCells = this.firstRows(variableCells);
+        this.firstRows();
+        this.thirdRow();
     }
 }
 
