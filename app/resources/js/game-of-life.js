@@ -1,8 +1,8 @@
+const spaceCellsConstant = 0;
 const variableCellsConstant = 1;
 const widthConstant = 2;
 const cellConstant = 3;
-
-let compactnessConstant = getRandomArbitrary(0.3, 0.7);
+const compactnessConstant = getRandomArbitrary(0.3, 0.7);
 
 class Engine {
     constructor(width, height) {
@@ -12,50 +12,59 @@ class Engine {
         this.variableCells = this.getVariableCells(width);
     }
 
-    getCells(width, height){
+    getCells(width, height) {
         return new Array(width * height);
     }
 
-    getVariableCells(width){
+    getVariableCells(width) {
         return new Array(cellConstant * width);
     }
 
     randomCells() {
-        for (let i = 0; i < this.cells.length; i++) {
-          this.cells[i] = this.getRandomCell();
+        for (let i = spaceCellsConstant; i < this.cells.length; i++) {
+            this.cells[i] = this.getRandomCell();
         }
     }
-      
-    getRandomCell(){
-        return 0 | compactnessConstant + Math.random();
+
+    getRandomCell() {
+        return spaceCellsConstant | compactnessConstant + Math.random();
     }
 
     clear() {
-        this.cells = new Array(this.cells.length).fill(0);
+        this.cells = new Array(this.cells.length).fill(spaceCellsConstant);
     }
 
-    getLength(){
+    getLength() {
         return this.width * widthConstant
     }
-      
+
     firstRows() {
-        for (let x = 0; x < this.getLength(); x++) {
-          this.variableCells[x] = 0;
+        for (let x = spaceCellsConstant; x < this.getLength(); x++) {
+            this.variableCells[x] = spaceCellsConstant;
         }
-      }
-      
-    thirdRow() {
-        this.variableCells[this.getLength()] = this.cells[0] + this.cells[1];
+    }
+
+    newRows() {
+        this.variableCells[this.getLength()] = this.cells[spaceCellsConstant] + this.cells[variableCellsConstant];
+        this.variableCells[this.getVariablePosition()] = this.cells[this.getFirstVariablePosition()] + this.cells[this.getSecondVariablePosition()];
     }
 
     getVariablePosition() {
         return this.width + this.getLength() - variableCellsConstant;
     }
 
+    getFirstVariablePosition() {
+        return this.width - variableCellsConstant;
+    }
+
+    getSecondVariablePosition() {
+        return this.width - widthConstant;
+    }
+
     generation() {
         let variableCells = this.variableCells;
         this.firstRows();
-        this.thirdRow();
+        this.newRows();
     }
 }
 
