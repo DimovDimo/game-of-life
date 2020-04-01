@@ -45,8 +45,8 @@ class Engine {
     }
 
     newRows() {
-        this.variableCells[this.getLength()] = this.cells[spaceCellsConstant] + this.cells[variableCellsConstant];
-        this.variableCells[this.getVariablePosition()] = this.cells[this.getFirstVariablePosition()] + this.cells[this.getSecondVariablePosition()];
+        this.variableCellsLength();
+        this.variableCellsPosition();
     }
 
     getVariablePosition() {
@@ -59,6 +59,14 @@ class Engine {
 
     getSecondVariablePosition() {
         return this.width - widthConstant;
+    }
+
+    variableCellsLength() {
+        this.variableCells[this.getLength()] = this.cells[spaceCellsConstant] + this.cells[variableCellsConstant];
+    }
+
+    variableCellsPosition() {
+        this.variableCells[this.getVariablePosition()] = this.cells[this.getFirstVariablePosition()] + this.cells[this.getSecondVariablePosition()];
     }
 
     generation() {
