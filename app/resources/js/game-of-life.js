@@ -47,6 +47,7 @@ class Engine {
     newRows() {
         this.variableCellsLength();
         this.variableCellsPosition();
+        this.fullVariableCells();
     }
 
     getVariablePosition() {
@@ -68,6 +69,12 @@ class Engine {
     variableCellsPosition() {
         this.variableCells[this.getVariablePosition()] = this.cells[this.getFirstVariablePosition()] + this.cells[this.getSecondVariablePosition()];
     }
+
+    fullVariableCells() {
+        for (let x = variableCellsConstant; x < this.getFirstVariablePosition(); x++) {
+          //TODO
+        }
+      }
 
     generation() {
         let variableCells = this.variableCells;
