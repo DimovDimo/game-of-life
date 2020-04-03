@@ -21,8 +21,8 @@ class Engine {
     }
 
     randomCells() {
-        for (let i = spaceCellsConstant; i < this.cells.length; i++) {
-            this.cells[i] = this.getRandomCell();
+        for (let index = spaceCellsConstant; index < this.cells.length; index++) {
+            this.cells[index] = this.getRandomCell();
         }
     }
 
@@ -39,8 +39,8 @@ class Engine {
     }
 
     firstRows() {
-        for (let x = spaceCellsConstant; x < this.getLength(); x++) {
-            this.variableCells[x] = spaceCellsConstant;
+        for (let index = spaceCellsConstant; index < this.getLength(); index++) {
+            this.variableCells[index] = spaceCellsConstant;
         }
     }
 
@@ -71,13 +71,31 @@ class Engine {
     }
 
     fullVariableCells() {
-        for (let x = variableCellsConstant; x < this.getFirstVariablePosition(); x++) {
-          //TODO
+        for (let index = variableCellsConstant; index < this.getFirstVariablePosition(); index++) {
+            this.fullVariableCellsByIndex(index);
         }
-      }
+    }
+
+    getCellsPosition(index) {
+        return index + this.getLength();
+    }
+
+    getCellPosition(index, isBefore) {
+        if (isBefore) {
+            return index - variableCellsConstant;
+        }
+
+        return index + variableCellsConstant;
+    }
+
+    fullVariableCellsByIndex(index) {
+        this.variableCells[this.getCellsPosition(index)] = this.cells[index]
+            + this.cells[this.getCellPosition(index, true)]
+            + this.cells[this.getCellPosition(index, false)];
+    }
 
     generation() {
-        let variableCells = this.variableCells;
+        let variableCells = this.variableCells;///// TODO: remove
         this.firstRows();
         this.newRows();
     }
