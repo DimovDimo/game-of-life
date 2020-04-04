@@ -44,7 +44,7 @@ class Engine {
         }
     }
 
-    newRows() {
+    middleRows() {
         this.variableCellsLength();
         this.variableCellsPosition();
         this.fullVariableCells();
@@ -94,10 +94,15 @@ class Engine {
             + this.cells[this.getCellPosition(index, false)];
     }
 
+    penultimateRows() {
+
+    }
+
     generation() {
-        let variableCells = this.variableCells;///// TODO: remove
+        let variableCells = this.variableCells;
         this.firstRows();
-        this.newRows();
+        this.middleRows();
+        this.penultimateRows();
     }
 }
 
