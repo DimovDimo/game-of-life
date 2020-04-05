@@ -95,7 +95,13 @@ class Engine {
     }
 
     penultimateRows() {
+        for (let index = spaceCellsConstant, finish = this.getFinish(); index < finish; index = index + this.width) {
+            
+        }
+    }
 
+    getFinish() {
+        return this.height * this.width - this.width;
     }
 
     generation() {
