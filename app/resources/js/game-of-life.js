@@ -104,6 +104,10 @@ class Engine {
         return this.height * this.width - this.width;
     }
 
+    getVariableCellsPosition(index) {
+        return index % this.variableCells.length;
+    }
+
     generation() {
         let variableCells = this.variableCells;
         this.firstRows();
