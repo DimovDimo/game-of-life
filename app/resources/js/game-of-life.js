@@ -112,6 +112,10 @@ class Engine {
         return index + this.width;
     }
 
+    getIndexWithVariableConstant(index) {
+        return this.getIndexByWidth(index) + variableCellsConstant;
+    }
+
     generation() {
         let variableCells = this.variableCells;
         this.firstRows();
