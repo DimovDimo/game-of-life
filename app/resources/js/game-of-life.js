@@ -112,14 +112,17 @@ class Engine {
         return index + this.width;
     }
 
-    getIndexWithVariableConstant(index) {
-        return this.getIndexByWidth(index) + variableCellsConstant;
+    getIndexByWith(index, isBefore) {
+        return this.width + this.getCellPosition(index, isBefore);
     }
 
-    updateVariableCellsPosition(index) {
-        this.variableCells[this.getVariableCellsPosition(index)] = this.cells[this.getIndexByWidth(index)] + this.cells[this.getIndexWithVariableConstant(index)];
+    updateVariableCellsPosition(index, isBefore) {
+        this.variableCells[this.getVariableCellsPosition(index)] = this.cells[this.getIndexByWidth(index)] + this.cells[this.getIndexByWith(index, isBefore)];
     }
 
+    getPositionByWidth(index, isBefore) {
+        return this.getIndexByWith(index, isBefore) % this.variableCells.length;
+    }
     generation() {
         let variableCells = this.variableCells;
         this.firstRows();
