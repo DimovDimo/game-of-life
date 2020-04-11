@@ -96,7 +96,7 @@ class Engine {
 
     penultimateRows() {
         for (let index = spaceCellsConstant, finish = this.getFinish(); index < finish; index = index + this.width) {
-            this.updateVariableCellsPosition(index);
+            this.updateVariableCellsPosition(index, false);
         }
     }
 
@@ -123,6 +123,11 @@ class Engine {
     getPositionByWidth(index, isBefore) {
         return this.getIndexByWith(index, isBefore) % this.variableCells.length;
     }
+
+    getIndexByWidthConstant(index) {
+        return index + this.getLength() - widthConstant;
+    }
+    
     generation() {
         let variableCells = this.variableCells;
         this.firstRows();
