@@ -125,7 +125,15 @@ class Engine {
     }
 
     getIndexByWidthConstant(index) {
-        return index + this.getLength() - widthConstant;
+        return this.getIndexLengthByWidth(index) - widthConstant;
+    }
+    
+    getIndexByVariableCellsConstant(index) {
+        return this.getIndexLengthByWidth(index) - variableCellsConstant;
+    }
+    
+    getIndexLengthByWidth(index){
+        return index + this.getLength();
     }
     
     generation() {
