@@ -98,6 +98,7 @@ class Engine {
         for (let index = spaceCellsConstant, finish = this.getFinish(); index < finish; index = index + this.width) {
             this.updateVariableCellsPosition(index, false);
             this.updateVariableCellsNeighbours(index, true);
+            this.updateVariableCells(index);
         }
     }
 
@@ -139,6 +140,11 @@ class Engine {
 
     updateVariableCellsNeighbours(index, isBefore) {
         this.variableCells[this.getPositionByWidth(index, isBefore)] = this.cells[this.getIndexByWidthConstant(index)] + this.cells[this.getIndexByVariableCellsConstant(index)];
+    }
+
+    updateVariableCells(index) {
+        for (let variableCellsIndex = variableCellsConstant; variableCellsIndex < this.getFirstVariablePosition(); variableCellsIndex++) {
+        }
     }
 
     generation() {
