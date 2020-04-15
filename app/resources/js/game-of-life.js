@@ -144,7 +144,12 @@ class Engine {
 
     updateVariableCells(index) {
         for (let variableCellsIndex = variableCellsConstant; variableCellsIndex < this.getFirstVariablePosition(); variableCellsIndex++) {
+            let cellsIndex = this.getCellsIndex(index, variableCellsIndex);
         }
+    }
+
+    getCellsIndex(index, variableCellsIndex){
+        return variableCellsIndex + this.getIndexByWidth(index);
     }
 
     generation() {
