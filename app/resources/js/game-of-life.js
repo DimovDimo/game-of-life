@@ -152,6 +152,10 @@ class Engine {
         return variableCellsIndex + this.getIndexByWidth(index);
     }
 
+    getIndexPositionByLength(index, variableCellsIndex){
+        return (index + variableCellsIndex) % this.variableCells.length
+    }
+
     generation() {
         let variableCells = this.variableCells;
         this.firstRows();
