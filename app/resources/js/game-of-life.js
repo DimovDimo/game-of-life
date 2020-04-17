@@ -144,15 +144,17 @@ class Engine {
 
     updateVariableCells(index) {
         for (let variableCellsIndex = variableCellsConstant; variableCellsIndex < this.getFirstVariablePosition(); variableCellsIndex++) {
-            let cellsIndex = this.getCellsIndex(index, variableCellsIndex);
+          let position = this.getIndexPositionByLength(index, variableCellsIndex);
+          let cellsIndex = this.getCellsIndex(index, variableCellsIndex);
+          this.variableCells[position] = this.cells[cellsIndex] + this.cells[this.getCellPosition(cellsIndex, true)] + this.cells[this.getCellPosition(cellsIndex, false)];
         }
     }
 
-    getCellsIndex(index, variableCellsIndex){
+    getCellsIndex(index, variableCellsIndex) {
         return variableCellsIndex + this.getIndexByWidth(index);
     }
 
-    getIndexPositionByLength(index, variableCellsIndex){
+    getIndexPositionByLength(index, variableCellsIndex) {
         return (index + variableCellsIndex) % this.variableCells.length
     }
 
