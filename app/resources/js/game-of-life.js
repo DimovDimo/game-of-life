@@ -99,6 +99,7 @@ class Engine {
             this.updateVariableCellsPosition(index, false);
             this.updateVariableCellsNeighbours(index, true);
             this.updateVariableCells(index);
+            this.updateAllCells(index);
         }
     }
 
@@ -156,6 +157,12 @@ class Engine {
 
     getIndexPositionByLength(index, variableCellsIndex) {
         return (index + variableCellsIndex) % this.variableCells.length
+    }
+
+    updateAllCells(index){
+        for (let cells = spaceCellsConstant; cells < this.width; cells++) {
+
+        }
     }
 
     generation() {
