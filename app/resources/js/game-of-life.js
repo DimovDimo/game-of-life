@@ -145,9 +145,9 @@ class Engine {
 
     updateVariableCells(index) {
         for (let variableCellsIndex = variableCellsConstant; variableCellsIndex < this.getFirstVariablePosition(); variableCellsIndex++) {
-          let position = this.getIndexPositionByLength(index, variableCellsIndex);
-          let cellsIndex = this.getCellsIndex(index, variableCellsIndex);
-          this.variableCells[position] = this.cells[cellsIndex] + this.cells[this.getCellPosition(cellsIndex, true)] + this.cells[this.getCellPosition(cellsIndex, false)];
+            let position = this.getIndexPositionByLength(index, variableCellsIndex);
+            let cellsIndex = this.getCellsIndex(index, variableCellsIndex);
+            this.variableCells[position] = this.cells[cellsIndex] + this.cells[this.getCellPosition(cellsIndex, true)] + this.cells[this.getCellPosition(cellsIndex, false)];
         }
     }
 
@@ -159,10 +159,17 @@ class Engine {
         return (index + variableCellsIndex) % this.variableCells.length
     }
 
-    updateAllCells(index){
+    updateAllCells(index) {
         for (let cells = spaceCellsConstant; cells < this.width; cells++) {
-
+            let sumSpaceCells = this.getSpaceCellsSum(spaceCells, index);
         }
+    }
+
+    getSpaceCellsSum(spaceCells, index) {
+        return this.variableCells[this.getIndexByWidth(spaceCells)]
+            + this.variableCells[this.getIndexLengthByWidth(spaceCells)]
+            + this.variableCells[spaceCells]
+            - this.cells[spaceCells + index];
     }
 
     generation() {
