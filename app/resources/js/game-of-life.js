@@ -172,6 +172,14 @@ class Engine {
             - this.cells[spaceCells + index];
     }
 
+    isCellPosition(sumSpaceCells){
+        return sumSpaceCells == cellConstant;
+    }
+    
+    isCellWidth(sumSpaceCells){
+        return sumSpaceCells != widthConstant;
+    }
+
     generation() {
         let variableCells = this.variableCells;
         this.firstRows();
