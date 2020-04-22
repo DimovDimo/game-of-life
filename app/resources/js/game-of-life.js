@@ -95,7 +95,7 @@ class Engine {
     }
 
     penultimateRows() {
-        for (let index = spaceCellsConstant, finish = this.getFinish(); index < finish; index = index + this.width) {
+        for (let index = spaceCellsConstant; index < this.getFinish(); index = index + this.width) {
             this.updateVariableCellsPosition(index, false);
             this.updateVariableCellsNeighbours(index, true);
             this.updateVariableCells(index);
@@ -162,6 +162,7 @@ class Engine {
     updateAllCells(index) {
         for (let cells = spaceCellsConstant; cells < this.width; cells++) {
             let sumSpaceCells = this.getSpaceCellsSum(spaceCells, index);
+            this.fullCellsValue(sumSpaceCells, index, spaceCells);
         }
     }
 
@@ -172,12 +173,21 @@ class Engine {
             - this.cells[spaceCells + index];
     }
 
-    isCellPosition(sumSpaceCells){
+    isCellPosition(sumSpaceCells) {
         return sumSpaceCells == cellConstant;
     }
-    
-    isCellWidth(sumSpaceCells){
+
+    isCellWidth(sumSpaceCells) {
         return sumSpaceCells != widthConstant;
+    }
+
+    fullCellsValue(sumSpaceCells, index, spaceCells) {
+        if (this.isCellPosition(sumSpaceCells)) {
+            this.cells[spaceCells + index] = variableCellsConstant;
+        }
+        else if (this.isCellWidth(sumSpaceCells)) {
+            this.cells[spaceCells + index] = spaceCellsConstant;
+        }
     }
 
     generation() {
