@@ -190,11 +190,24 @@ class Engine {
         }
     }
 
+    lastRow() {
+        let variableCellsArea = this.getVariableCellsArea();
+
+    }
+
+    getArea() {
+        return this.height * this.width;
+    }
+
+    getVariableCellsArea() {
+        return this.getArea() - this.width;
+    }
+
     generation() {
-        let variableCells = this.variableCells;
         this.firstRows();
         this.middleRows();
         this.penultimateRows();
+        this.lastRow();
     }
 }
 
