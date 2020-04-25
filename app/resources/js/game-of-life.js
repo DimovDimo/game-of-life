@@ -207,6 +207,11 @@ class Engine {
     }
 
     getVariableCellsSum(variableCellsArea, index) {
+        return this.variableCells[this.getFirstSpaceCellsPosition(variableCellsArea, index)];
+    }
+
+    getFirstSpaceCellsPosition(variableCellsArea, index){
+        return (variableCellsArea + index - this.width) % this.variableCells.length
     }
 
     generation() {
