@@ -207,11 +207,19 @@ class Engine {
     }
 
     getVariableCellsSum(variableCellsArea, index) {
-        return this.variableCells[this.getFirstSpaceCellsPosition(variableCellsArea, index)];
+        return this.variableCells[this.getFirstSpaceCgetFirstSpaceCellsPosition(variableCellsArea, index, true)]
+            + this.variableCells[this.getFirstSpaceCgetFirstSpaceCellsPosition(variableCellsArea, index, false)]
+            - this.cells[variableCellsArea + index];
     }
 
-    getFirstSpaceCellsPosition(variableCellsArea, index){
-        return (variableCellsArea + index - this.width) % this.variableCells.length
+    getFirstSpaceCgetFirstSpaceCellsPosition(variableCellsArea, index, isWidth) {
+        let cellsPosition = variableCellsArea + index;
+
+        if (isWidth) {
+            cellsPosition = cellsPosition - this.width;
+        }
+
+        return cellsPosition % this.variableCells.length
     }
 
     generation() {
