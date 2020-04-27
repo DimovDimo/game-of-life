@@ -192,9 +192,10 @@ class Engine {
 
     lastRow() {
         let variableCellsArea = this.getVariableCellsArea();
+
         for (let index = spaceCellsConstant; index < this.width; index++) {
             let variableCellsSum = this.getVariableCellsSum(variableCellsArea, index);
-
+            this.fullCellsValue(variableCellsSum, index, variableCellsArea)
         }
     }
 
