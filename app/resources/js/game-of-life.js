@@ -3,6 +3,8 @@ const variableCellsConstant = 1;
 const widthConstant = 2;
 const cellConstant = 3;
 const compactnessConstant = getRandomArbitrary(0.3, 0.7);
+const gameSizeConstant = 10;
+const contextConstant = "2d";
 
 class Engine {
     constructor(width, height) {
@@ -228,6 +230,13 @@ class Engine {
         this.middleRows();
         this.penultimateRows();
         this.lastRow();
+    }
+}
+
+class Game {
+    constructor(canvasGameOfLife) {
+        this.canvasGameOfLife = canvasGameOfLife;
+        this.contextGameOfLife = canvasGameOfLife.getContext(contextConstant);
     }
 }
 
