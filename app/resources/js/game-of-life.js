@@ -237,6 +237,12 @@ class Game {
     constructor(canvasGameOfLife) {
         this.canvasGameOfLife = canvasGameOfLife;
         this.contextGameOfLife = canvasGameOfLife.getContext(contextConstant);
+        this.distance = spaceCellsConstant;
+        this.create(gameSizeConstant);
+    }
+
+    create(gameSizeConstant) {
+
     }
 }
 
