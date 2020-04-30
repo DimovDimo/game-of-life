@@ -242,7 +242,11 @@ class Game {
     }
 
     create(gameSizeConstant) {
+        let cellsSize = this.getCellsSize(gameSizeConstant);
+    }
 
+    getCellsSize(gameSizeConstant){
+        return this.canvasGameOfLife.clientWidth / gameSizeConstant;
     }
 }
 
