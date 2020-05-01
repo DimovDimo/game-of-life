@@ -210,12 +210,12 @@ class Engine {
     }
 
     getVariableCellsSum(variableCellsArea, index) {
-        return this.variableCells[this.getFirstSpaceCgetFirstSpaceCellsPosition(variableCellsArea, index, true)]
-            + this.variableCells[this.getFirstSpaceCgetFirstSpaceCellsPosition(variableCellsArea, index, false)]
+        return this.variableCells[this.getFirstSpaceCellsPosition(variableCellsArea, index, true)]
+            + this.variableCells[this.getFirstSpaceCellsPosition(variableCellsArea, index, false)]
             - this.cells[variableCellsArea + index];
     }
 
-    getFirstSpaceCgetFirstSpaceCellsPosition(variableCellsArea, index, isWidth) {
+    getFirstSpaceCellsPosition(variableCellsArea, index, isWidth) {
         let cellsPosition = variableCellsArea + index;
 
         if (isWidth) {
@@ -245,7 +245,7 @@ class Game {
         let cellsSize = this.getCellsSize(gameSizeConstant);
     }
 
-    getCellsSize(gameSizeConstant){
+    getCellsSize(gameSizeConstant) {
         return this.canvasGameOfLife.clientWidth / gameSizeConstant;
     }
 }
