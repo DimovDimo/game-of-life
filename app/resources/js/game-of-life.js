@@ -242,11 +242,22 @@ class Game {
     }
 
     create(gameSizeConstant) {
+        this.engine = new Engine(gameSizeConstant, gameSizeConstant);
+        this.engine.randomCells();
+
+        this.canvasGameOfLife.width = gameSizeConstant;
+        this.canvasGameOfLife.height = gameSizeConstant;
+
         let cellsSize = this.getCellsSize(gameSizeConstant);
+        this.gameBackground(cellsSize);
     }
 
     getCellsSize(gameSizeConstant) {
         return this.canvasGameOfLife.clientWidth / gameSizeConstant;
+    }
+
+    gameBackground(cellsSize) {
+
     }
 }
 
