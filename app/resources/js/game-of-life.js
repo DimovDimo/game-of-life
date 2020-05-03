@@ -259,6 +259,10 @@ class Game {
     gameBackground(cellsSize) {
 
     }
+
+    getRepeatingLinearGradient(degrees, colorHex, cellsSize) {
+        return `repeating-linear-gradient(${degrees}deg, #${colorHex}, transparent ${cellsSize}px)`;
+    }
 }
 
 function getRandomArbitrary(min, max) {
