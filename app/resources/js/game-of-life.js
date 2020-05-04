@@ -5,6 +5,9 @@ const cellConstant = 3;
 const compactnessConstant = getRandomArbitrary(0.3, 0.7);
 const gameSizeConstant = 10;
 const contextConstant = "2d";
+const horizontalDegreesConstant = 0;
+const verticalDegreesConstant = -90;
+const colorHexBackgroundConstant = "#17fc02";
 
 class Engine {
     constructor(width, height) {
