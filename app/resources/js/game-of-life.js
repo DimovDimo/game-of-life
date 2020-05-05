@@ -5,9 +5,7 @@ const cellConstant = 3;
 const compactnessConstant = getRandomArbitrary(0.3, 0.7);
 const gameSizeConstant = 10;
 const contextConstant = "2d";
-const horizontalDegreesConstant = 0;
-const verticalDegreesConstant = -90;
-const colorHexBackgroundConstant = "#17fc02";
+const colorHexBackgroundConstant = "#5df000";
 
 class Engine {
     constructor(width, height) {
@@ -251,20 +249,11 @@ class Game {
         this.canvasGameOfLife.width = gameSizeConstant;
         this.canvasGameOfLife.height = gameSizeConstant;
 
-        let cellsSize = this.getCellsSize(gameSizeConstant);
-        this.gameBackground(cellsSize);
+        this.gameBackground();
     }
 
-    getCellsSize(gameSizeConstant) {
-        return this.canvasGameOfLife.clientWidth / gameSizeConstant;
-    }
-
-    gameBackground(cellsSize) {
-
-    }
-
-    getRepeatingLinearGradient(degrees, colorHex, cellsSize) {
-        return `repeating-linear-gradient(${degrees}deg, #${colorHex}, transparent ${cellsSize}px)`;
+    gameBackground(){
+        this.canvasGameOfLife.style.background = colorHexBackgroundConstant;
     }
 }
 
