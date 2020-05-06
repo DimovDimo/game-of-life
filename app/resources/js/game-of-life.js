@@ -245,14 +245,17 @@ class Game {
     create(gameSizeConstant) {
         this.engine = new Engine(gameSizeConstant, gameSizeConstant);
         this.engine.randomCells();
-
-        this.canvasGameOfLife.width = gameSizeConstant;
-        this.canvasGameOfLife.height = gameSizeConstant;
-
-        this.gameBackground();
+        this.setWidthAndHeight(gameSizeConstant, gameSizeConstant);
+        this.setGameBackground();
+        this.draw(this.contextGameOfLife);
     }
 
-    gameBackground(){
+    setWidthAndHeight(width, height) {
+        this.canvasGameOfLife.width = width;
+        this.canvasGameOfLife.height = height;
+    }
+
+    setGameBackground() {
         this.canvasGameOfLife.style.background = colorHexBackgroundConstant;
     }
 }
