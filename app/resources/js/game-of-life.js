@@ -247,7 +247,16 @@ class Game {
         this.engine.randomCells();
         this.setWidthAndHeight(gameSizeConstant, gameSizeConstant);
         this.setGameBackground();
-        this.draw(this.contextGameOfLife);
+        this.picture(this.contextGameOfLife);
+    }
+
+    amend() {
+        this.picture(this.contextGameOfLife);
+        this.engine.generation();
+    }
+
+    picture(contextGameOfLife) {
+        //TODO
     }
 
     setWidthAndHeight(width, height) {
