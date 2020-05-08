@@ -6,6 +6,7 @@ const compactnessConstant = getRandomArbitrary(0.3, 0.7);
 const gameSizeConstant = 10;
 const contextConstant = "2d";
 const colorHexBackgroundConstant = "#5df000";
+const speedConstant = getRandomArbitrary(20, 30);
 
 class Engine {
     constructor(width, height) {
