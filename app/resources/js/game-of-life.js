@@ -256,6 +256,15 @@ class Game {
         this.engine.generation();
     }
 
+    start() {
+        this.distance = setInterval(this.amend.bind(this), speedConstant);
+    }
+
+    stop() {
+        clearInterval(this.distance);
+        this.distance = spaceCellsConstant;
+    }
+
     picture(contextGameOfLife) {
         //TODO
     }
