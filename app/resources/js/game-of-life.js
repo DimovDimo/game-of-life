@@ -265,6 +265,10 @@ class Game {
         this.distance = spaceCellsConstant;
     }
 
+    isRunning() {
+        return this.distance > spaceCellsConstant;
+    }
+
     picture(contextGameOfLife) {
         //TODO
     }
