@@ -248,11 +248,11 @@ class Game {
         this.engine.randomCells();
         this.setWidthAndHeight(gameSizeConstant, gameSizeConstant);
         this.setGameBackground();
-        this.picture(this.contextGameOfLife);
+        this.painting(this.contextGameOfLife);
     }
 
     amend() {
-        this.picture(this.contextGameOfLife);
+        this.painting(this.contextGameOfLife);
         this.engine.generation();
     }
 
@@ -269,8 +269,10 @@ class Game {
         return this.distance > spaceCellsConstant;
     }
 
-    picture(contextGameOfLife) {
-        //TODO
+    painting(contextGameOfLife) {
+        let gameImageData = contextGameOfLife.getImageData(
+            spaceCellsConstant, spaceCellsConstant,
+            this.engine.width, this.engine.height);
     }
 
     setWidthAndHeight(width, height) {
