@@ -2,10 +2,13 @@ const spaceCellsConstant = 0;
 const variableCellsConstant = 1;
 const widthConstant = 2;
 const cellConstant = 3;
-const compactnessConstant = getRandomArbitrary(0.3, 0.7);
+const gameConstant = 4;
 const gameSizeConstant = 10;
+
 const contextConstant = "2d";
 const colorHexBackgroundConstant = "#5df000";
+
+const compactnessConstant = getRandomArbitrary(0.3, 0.7);
 const speedConstant = getRandomArbitrary(20, 30);
 
 class Engine {
@@ -273,6 +276,12 @@ class Game {
         let gameImageData = contextGameOfLife.getImageData(
             spaceCellsConstant, spaceCellsConstant,
             this.engine.width, this.engine.height);
+
+        let gameData = gameImageData.data;
+
+        for (let i = spaceCellsConstant; i < gameData.length; i += gameConstant) {
+
+        }
     }
 
     setWidthAndHeight(width, height) {
