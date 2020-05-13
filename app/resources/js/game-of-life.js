@@ -292,6 +292,14 @@ class Game {
     setGameBackground() {
         this.canvasGameOfLife.style.background = colorHexBackgroundConstant;
     }
+
+    isCellLife(i){
+        return this.engine.cells[this.bitLife(i)];
+    }
+    
+    bitLife(i){
+        return i >> widthConstant;
+    }
 }
 
 function getRandomArbitrary(min, max) {
