@@ -293,12 +293,23 @@ class Game {
         this.canvasGameOfLife.style.background = colorHexBackgroundConstant;
     }
 
-    isCellLife(i){
+    isCellLife(i) {
         return this.engine.cells[this.bitLife(i)];
     }
-    
-    bitLife(i){
+
+    bitLife(i) {
         return i >> widthConstant;
+    }
+
+    cellOffspring(i, gameData) {
+        gameData[i + cellConstant] = gameDataConstant;
+        gameData[i + widthConstant] = spaceCellsConstant;
+        gameData[i + variableCellsConstant] = spaceCellsConstant;
+        gameData[i] = spaceCellsConstant;
+    }
+
+    cellDeath(i, gameData) {
+        gameData[i + cellConstant] = spaceCellsConstant;
     }
 }
 
