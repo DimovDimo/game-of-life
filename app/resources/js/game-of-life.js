@@ -273,15 +273,10 @@ class Game {
     }
 
     painting(contextGameOfLife) {
-        let gameImageData = contextGameOfLife.getImageData(
-            spaceCellsConstant, spaceCellsConstant,
-            this.engine.width, this.engine.height);
-
+        let gameImageData = contextGameOfLife.getImageData(spaceCellsConstant, spaceCellsConstant, this.engine.width, this.engine.height);
         let gameData = gameImageData.data;
-
-        for (let i = spaceCellsConstant; i < gameData.length; i += gameConstant) {
-
-        }
+        this.cellsLife(gameData);
+        contextGameOfLife.putImageData(gameImageData, spaceCellsConstant, spaceCellsConstant);
     }
 
     setWidthAndHeight(width, height) {
@@ -310,6 +305,16 @@ class Game {
 
     cellDeath(i, gameData) {
         gameData[i + cellConstant] = spaceCellsConstant;
+    }
+
+    cellsLife(gameData) {
+        for (let i = spaceCellsConstant; i < gameData.length; i += gameConstant) {
+            if (this.isCellLife(i)) {
+                this.cellOffspring(i, gameData);
+            } else {
+                this.cellDeath(i, gameData);
+            }
+        }
     }
 }
 
