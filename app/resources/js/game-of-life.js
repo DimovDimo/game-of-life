@@ -4,6 +4,7 @@ const widthConstant = 2;
 const cellConstant = 3;
 const gameConstant = 4;
 const gameSizeConstant = 10;
+const gameDataConstant = 200;
 
 const contextConstant = "2d";
 const colorHexBackgroundConstant = "#5df000";
