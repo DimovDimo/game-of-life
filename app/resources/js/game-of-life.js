@@ -319,6 +319,10 @@ class Game {
     }
 }
 
+let canvasGameOfLife = document.getElementById("canvas-game-of-life");
+let buttonNewGame = document.getElementById("button-new-game");
+let buttonStartStop = document.getElementById("button-start-stop");
+
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
