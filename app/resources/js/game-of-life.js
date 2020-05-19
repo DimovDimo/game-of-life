@@ -239,7 +239,7 @@ class Engine {
     }
 }
 
-class Game {
+class GameOfLife {
     constructor(canvasGameOfLife) {
         this.canvasGameOfLife = canvasGameOfLife;
         this.contextGameOfLife = canvasGameOfLife.getContext(contextConstant);
@@ -323,7 +323,14 @@ let canvasGameOfLife = document.getElementById("canvas-game-of-life");
 let buttonNewGame = document.getElementById("button-new-game");
 let buttonStartStop = document.getElementById("button-start-stop");
 let field = document.getElementById("field");
+let gameOfLife = new GameOfLife(canvasGameOfLife);
+
+gameOfLife.create(getFieldSize());
 
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
+}
+
+function getFieldSize(){
+	return +field.value;
 }
