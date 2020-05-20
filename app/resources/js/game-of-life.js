@@ -334,3 +334,8 @@ function getRandomArbitrary(min, max) {
 function getFieldSize(){
 	return +field.value;
 }
+
+function start(){
+	gameOfLife.start();
+    buttonStartStop.textContent = "Stop";
+}
