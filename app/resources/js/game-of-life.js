@@ -327,15 +327,25 @@ let gameOfLife = new GameOfLife(canvasGameOfLife);
 
 gameOfLife.create(getFieldSize());
 
+buttonNewGame.addEventListener("click", newGame);
+
+buttonStartStop.addEventListener("click", );//TODO
+
+field.addEventListener("change", newGame);
+
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function getFieldSize(){
-	return +field.value;
+function getFieldSize() {
+    return +field.value;
 }
 
-function start(){
-	gameOfLife.start();
+function start() {
+    gameOfLife.start();
     buttonStartStop.textContent = "Stop";
+}
+
+function newGame() {
+    gameOfLife.create(getFieldSize());
 }
