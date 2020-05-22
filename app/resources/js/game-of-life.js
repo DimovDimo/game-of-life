@@ -329,7 +329,7 @@ gameOfLife.create(getFieldSize());
 
 buttonNewGame.addEventListener("click", newGame);
 
-buttonStartStop.addEventListener("click", );//TODO
+buttonStartStop.addEventListener("click");//TODO
 
 field.addEventListener("change", newGame);
 
@@ -344,6 +344,11 @@ function getFieldSize() {
 function start() {
     gameOfLife.start();
     buttonStartStop.textContent = "Stop";
+}
+
+function stop() {
+    gameOfLife.stop();
+    buttonStartStop.textContent = "Start";
 }
 
 function newGame() {
