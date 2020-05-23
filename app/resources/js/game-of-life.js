@@ -328,9 +328,7 @@ let gameOfLife = new GameOfLife(canvasGameOfLife);
 gameOfLife.create(getFieldSize());
 
 buttonNewGame.addEventListener("click", newGame);
-
-buttonStartStop.addEventListener("click");//TODO
-
+buttonStartStop.addEventListener("click", control);
 field.addEventListener("change", newGame);
 
 function getRandomArbitrary(min, max) {
@@ -353,4 +351,12 @@ function stop() {
 
 function newGame() {
     gameOfLife.create(getFieldSize());
+}
+
+function control() {
+    if (gameOfLife.isRunning()) {
+        stop();
+    } else {
+        start();
+    }
 }
