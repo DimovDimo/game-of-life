@@ -128,7 +128,9 @@ class Engine {
     }
 
     updateVariableCellsPosition(index, isBefore) {
-        this.variableCells[this.getVariableCellsPosition(index)] = this.cells[this.getIndexByWidth(index)] + this.cells[this.getIndexByWith(index, isBefore)];
+        this.variableCells[this.getVariableCellsPosition(index)] =
+            this.cells[this.getIndexByWidth(index)]
+            + this.cells[this.getIndexByWith(index, isBefore)];
     }
 
     getPositionByWidth(index, isBefore) {
@@ -148,7 +150,9 @@ class Engine {
     }
 
     updateVariableCellsNeighbours(index, isBefore) {
-        this.variableCells[this.getPositionByWidth(index, isBefore)] = this.cells[this.getIndexByWidthConstant(index)] + this.cells[this.getIndexByVariableCellsConstant(index)];
+        this.variableCells[this.getPositionByWidth(index, isBefore)] =
+            this.cells[this.getIndexByWidthConstant(index)]
+            + this.cells[this.getIndexByVariableCellsConstant(index)];
     }
 
     updateVariableCells(index) {
@@ -168,7 +172,7 @@ class Engine {
     }
 
     updateAllCells(index) {
-        for (let cells = spaceCellsConstant; cells < this.width; cells++) {
+        for (let spaceCells = spaceCellsConstant; spaceCells < this.width; spaceCells++) {
             let sumSpaceCells = this.getSpaceCellsSum(spaceCells, index);
             this.fullCellsValue(sumSpaceCells, index, spaceCells);
         }
@@ -247,10 +251,10 @@ class GameOfLife {
         this.create(gameSizeConstant);
     }
 
-    create(gameSizeConstant) {
-        this.engine = new Engine(gameSizeConstant, gameSizeConstant);
+    create(gameSize) {
+        this.engine = new Engine(gameSize, gameSize);
         this.engine.randomCells();
-        this.setWidthAndHeight(gameSizeConstant, gameSizeConstant);
+        this.setWidthAndHeight(gameSize, gameSize);
         this.setGameBackground();
         this.painting(this.contextGameOfLife);
     }
@@ -274,8 +278,15 @@ class GameOfLife {
     }
 
     painting(contextGameOfLife) {
-        let gameImageData = contextGameOfLife.getImageData(spaceCellsConstant, spaceCellsConstant, this.engine.width, this.engine.height);
+        let gameImageData = contextGameOfLife.getImageData(
+            spaceCellsConstant,
+            spaceCellsConstant,
+            this.engine.width,
+            this.engine.height
+        );
+
         let gameData = gameImageData.data;
+
         this.cellsLife(gameData);
         contextGameOfLife.putImageData(gameImageData, spaceCellsConstant, spaceCellsConstant);
     }
