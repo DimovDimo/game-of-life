@@ -11,22 +11,24 @@
 <body>
     <h1>Conway's Game of Life</h1>
     <main>
-        <button id="button-new-game">New game</button>
-        <button id="button-start-stop">Start</button>
-        Number of cells:
-        <select id="field">
-		    <option value="5">5 width, 5 height</option>
-            <option value="10">10 width, 10 height</option>
-			<option value="20">20 width, 20 height</option>
-            <option value="50">50 width, 50 height</option>
-            <option value="100" selected>100 width, 100 height</option>
-			<option value="200">200 width, 200 height</option>
-            <option value="500">500 width, 500 height</option>
-			<option value="1000">1000 width, 1000 height</option>
-        </select>
+        <div id="controllers">
+            <button id="button-new-game">New game</button>
+            <button id="button-start-stop">Start</button>
+            Number of cells:
+            <select id="field">
+                <option value="5">5 width, 5 height</option>
+                <option value="10">10 width, 10 height</option>
+                <option value="20">20 width, 20 height</option>
+                <option value="50">50 width, 50 height</option>
+                <option value="100" selected>100 width, 100 height</option>
+                <option value="200">200 width, 200 height</option>
+                <option value="500">500 width, 500 height</option>
+                <option value="1000">1000 width, 1000 height</option>
+            </select>
+        </div>
         <div id="canvas-container">
             <canvas id="canvas-game-of-life"></canvas>
-        </div>      
+        </div>
     </main>
     <footer>
         © CopyRight Dimo Dimov. MIT License.
