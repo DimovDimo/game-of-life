@@ -7,7 +7,7 @@ const gameSizeConstant = 10;
 const gameDataConstant = 200;
 
 const contextConstant = "2d";
-const colorHexBackgroundConstant = "#5df000";
+const colorHexBackgroundConstant = "#a7f377";
 
 const compactnessConstant = getRandomArbitrary(0.3, 0.7);
 const speedConstant = getRandomArbitrary(20, 30);
