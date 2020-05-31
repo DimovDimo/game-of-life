@@ -1,2 +1,4 @@
-# game-of-life
-Conway's Game of Life
+# Conway's Game of Life
+
+![End game](/readme-resources/end-game.png)
+![New game](/readme-resources/new-game.png)
